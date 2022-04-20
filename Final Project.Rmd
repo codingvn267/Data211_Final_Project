@@ -1,0 +1,25 @@
+---
+title: "Final Project"
+author: "Tung"
+date: "4/20/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+#H0: mu = 600
+#Ha: mu > 600
+t.test(x=c(890,346,404,969,468,548,341,839,643,779,537,392,690,467,616), mu=600, alternative =  "greater")
+#Failed to reject H0. There is no evidence to support that the mean calories I burned during fitness activity is greater than 600 calories. 
+
+calories <- c(890,346,404,969,468,548,341,839,643,779,537,392,690,467,616)
+day <- c("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15")
+mydf<-data.frame(calories, day)
+ggplot(data=mydf, aes(x=day,y=calories))+geom_point()
+```
+
